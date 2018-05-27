@@ -1,0 +1,44 @@
+{
+	"waypoint1": {
+		"latitude": 43.491903,
+		"longitude": 6.354346,
+		"type": "start",
+		"marge": 100
+	},
+	"waypoint2": {
+		"latitude": 43.493359,
+		"longitude": 6.356916,
+		"type": "point",
+		"marge": 100
+	},
+	"waypoint3": {
+		"latitude": 43.493359,
+		"longitude": 6.356916,
+		"type": "point",
+		"marge": 100
+	},
+	"waypoint4": {
+		"latitude": 43.493359,
+		"longitude": 6.356916,
+		"type": "point",
+		"marge": 100
+	},
+	"waypoint5": {
+		"latitude": 43.493359,
+		"longitude": 6.356916,
+		"type": "point",
+		"marge": 100
+	},
+	"waypoint6": {
+		"latitude": 43.493359,
+		"longitude": 6.356916,
+		"type": "point",
+		"marge": 100
+	},
+	"waypoint7": {
+		"latitude": 43.495222,
+		"longitude": 6.354626,
+		"type": "end",
+		"marge": 100
+	}
+}
