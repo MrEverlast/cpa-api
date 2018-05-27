@@ -1,9 +1,9 @@
 <?php 
   require_once "Database.php";
   if (isset($_GET['query'])) $query = $_GET['query']; else $query = false;
-  if (isset($_GET['id'])) $id = $_GET['id'];
+  if (isset($_GET['id'])) $id = $_GET['id']; else $id = false;
 
-  if ($query) {
+  if ($query && $id) {
     switch ($query) {
       case 'get_concurrent':
         $json = getConcurrent($id);
@@ -15,9 +15,11 @@
         break;
       
       default:
-        echo false;
+        echo "false";
         break;
     }
+  } else {
+    echo "false";
   }
 
   function getFile($id) {
@@ -45,6 +47,5 @@
     $json = json_encode($res);
     return $json != "" ? $json : "false";
   }
-
 
 ?>
