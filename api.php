@@ -24,8 +24,7 @@
 
   function getFile($id) {
     $bdd = new Database();
-    $req = $bdd->getUserParcoursById($id);
-    $data = $req->fetchAll(PDO::FETCH_ASSOC);
+    $data = $bdd->getUserParcoursById($id);
 
     echo '{';
     $i = 0;

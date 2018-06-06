@@ -24,6 +24,7 @@
     }
 
     public function getUserParcoursById($id) {
+      $i = 0;
       $req = $this->BDD->prepare("SELECT B.`Descriptif_Parcours`
                                   FROM `concurrent` AS A
                                   INNER JOIN `parcours` AS B ON A.`idEpreuve` = B.`id`
@@ -31,14 +32,21 @@
 
       $req->execute();
       $array = $req->fetch(PDO::FETCH_NUM)[0];
+      $point = explode(",", $array);
 
-			$req = $this->BDD->prepare("SELECT *
-                                  FROM `pointparcours`
-                                  WHERE `id` IN ($array)");
+      foreach ($point as $key => $value) {
+  			$req = $this->BDD->prepare("SELECT *
+                                    FROM `pointparcours`
+                                    WHERE `id` = $value");
 
-			$req->execute();
+  			$req->execute();
 
-      return $req;
+        $res = $req->fetch(PDO::FETCH_ASSOC);
+        $result[$i] = $res;
+        $i++;
+      }
+
+      return $result;
 
     }
 
