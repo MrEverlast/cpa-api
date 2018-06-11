@@ -59,6 +59,22 @@
       return $req;
     }
 
+    public function uploadRoute($id, $route) {
+      foreach ($route as $key => $value) {
+        $data = explode(",", $value);
+        $latitude = $data[0];
+        $longitude = $data[1];
+        $datePassage = $data[2];
+        $courseTime = $data[3];
+
+
+
+        $req = $this->BDD->prepare("INSERT INTO `concurrent_route` (`id`, `idConcurrent`, `latitude`, `longitude`, `datePassage`, `courseTime`) 
+                                    VALUES (NULL, '$id', '$latitude', '$longitude', '$datePassage', '$courseTime');");
+        $req->execute();
+      }
+    }
+
   }
   
 ?>

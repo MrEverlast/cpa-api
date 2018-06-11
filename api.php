@@ -13,6 +13,14 @@
       case 'get_file':
         getFile($id);
         break;
+
+      case 'send_file_route':
+      	send_file_route($id);
+      	break;
+
+      case 'send_file_parcours':
+      	send_file_parcours($id);
+      	break;
       
       default:
         echo "false";
@@ -45,6 +53,16 @@
     $res = $req->fetch(PDO::FETCH_ASSOC);
     $json = json_encode($res);
     return $json != "" ? $json : "false";
+  }
+
+  function send_file_route($id) {
+  	foreach (getallheaders() as $name => $value) {
+		  if ($name == "Custom-Text") {
+		  	$bdd = new Database();
+		  	$array = explode(";", $value);
+		  	$bdd->uploadRoute($id, $array);
+		  }
+		}
   }
 
 ?>
